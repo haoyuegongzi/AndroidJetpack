@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvNavigationPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:text="轮回：八式往复入轮回;\n天葬：自生而灭为天葬;\n天葬：运周天聚梵海，趋轮回入天葬;\n涅槃：极而复始，不生不灭;\n重生"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

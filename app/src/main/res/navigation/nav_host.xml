@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/homeFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.androidjetpack.navigation.HomeFragment"
+        android:label="home_dest"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_oneFragment"
+            app:destination="@id/oneFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="com.androidjetpack.navigation.OneFragment"
+        android:label="oneFragment"
+        tools:layout="@layout/fragment_one">
+
+        <!--action标签不是必须的，比如后面的fragment标签就没有action标签，尤其是最后一个fragment-->
+        <!--action里面id的规则：action_本fragment的id_to_下一个fragment的id-->
+        <!--destination的规则：下一个fragment的id-->
+        <action
+            android:id="@+id/action_oneFragment_to_zeroFragment"
+            app:destination="@+id/zeroFragment"/>
+
+        <!--下面defaultValue的类型必须与字段argType必须保持一致，比如下面argType="integer"，defaultValue="1"-->
+        <argument
+            android:name="one_Fragment"
+            app:argType="integer"
+            android:defaultValue="1"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/zeroFragment"
+        android:name="com.androidjetpack.navigation.ZeroFragment"
+        android:label="ZeroFragment"
+        tools:layout="@layout/fragment_zero">
+
+        <!-- 下面的argument标签不是必须的 -->
+        <!--argument：类似于Activity的跳转传参，只不过传参取参更加方便简单，
+        如果某个Fragment要接收从别的Fragment传过来的参数，那么可以通过argument标签处理，
+        如果我们在kotlin代码里面没有传参，那么我们获取到的就是通过argument标签设定的默认值，具体见下面。-->
+        <!--下面defaultValue的类型必须与字段argType必须保持一致，比如下面argType="integer"，defaultValue="0"-->
+        <argument
+            android:name="zero_Fragment"
+            app:argType="integer"
+            android:defaultValue="0"/>
+    </fragment>
+</navigation>

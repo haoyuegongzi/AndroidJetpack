@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidJetpack</string>
+
+
+    <string name="home">星辰变：\n定位：进攻性强，爆发力高。\n口诀：八脉汇流入气海 意守一念力如山。\n招式：狼牙破空、苍河星转、狼影回空、贯地狼突、狼啸万里、天狼啸日，强招【逆刀回狼影】，强招【破空千狼影】，极招【万狼啸天绝】</string>
+    <string name="one">虚空灭：\n定位：注重防守，沉稳，刚强。\n口诀：丹田散气盈若虚 海纳百川兼容蓄。\n招式：狼王印、霸王殛，强招【君临天下】，极招【皇者号天令】</string>
+    <string name="deep">轮回劫：\n定位：避实就虚、攻守制衡，灵活多变。\n口诀：四两拨开阴阳势 借彼几分还几分。\n招式：破乾坤、碎苍穹、众生灭</string>
+</resources>

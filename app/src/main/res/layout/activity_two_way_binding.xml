@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 配置 -->
+    <data>
+
+        <variable
+            name="authInfo"
+            type="com.androidjetpack.twowaybinding.AuthInfo" />
+        
+        <variable
+            name="auth"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+    </data>
+
+        <!-- 布局 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="5dp">
+
+        <Button
+            android:id="@+id/btnBinding"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="binding"
+            android:textAllCaps="false"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@{authInfo.username}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@{authInfo.password}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{authInfo.toString()}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{auth}"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={auth}"/>
+    </LinearLayout>
+</layout>

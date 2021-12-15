@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    tools:context=".navigation.NavigationPrimaryActivity">
+
+<!--android:name：是NavHostFragment，它实现了NavHost，
+                  这是一个用于放置管理destination的空视图。指向NavHost的实现类NavHostFragment-->
+<!--app:navGraph：指向Navigation graph配置文件，用于将NavHostFragment和nav_graph.xml关联起来。-->
+<!--app:defaultNavHost：默认值为false，当该值为false的时候，
+当前Activity中的Fragment使用了Navigation,且使用Navigation跳转到下一个Fragment，
+在下一个Fragment页面中点击了Back键会退出当前Activity。为true的时候是回到上一个Fragment中，
+如果上一个Fragment为null才会退出当前Activity。类似于我们处理WebView的back事件。
+-->
+
+    <fragment
+        android:id="@+id/nav_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/nav_host"
+        app:defaultNavHost="true"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/write"
+        app:menu="@menu/bottom_nav_menu"/>
+
+</LinearLayout>

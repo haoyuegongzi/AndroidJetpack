@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.androidjetpack.MainActivity"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvViewPager2"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="ViewPager2"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvViewPager2Frag"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="ViewPager2Frag"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/tvViewPager2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNavigationPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Navigation"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/tvViewPager2Frag"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDataBinding"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="DataBinding"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewPager2"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvRoomSQLit"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="RoomSQLit"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toRightOf="@+id/tvDataBinding"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewPager2"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tvViewModel"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="ViewModel"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toRightOf="@+id/tvRoomSQLit"
+        app:layout_constraintTop_toBottomOf="@+id/tvNavigationPrimary"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tvLifecycles"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Lifecycles"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDataBinding"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvTwoWayBinding"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="TwoWayBinding"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toRightOf="@+id/tvLifecycles"
+        app:layout_constraintTop_toBottomOf="@+id/tvDataBinding"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tvMvvmDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="MvvmDemo"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toRightOf="@+id/tvTwoWayBinding"
+        app:layout_constraintTop_toBottomOf="@+id/tvViewModel"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tvArticle"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="ArticleList"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLifecycles"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvCustomEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="CustomEditText"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toRightOf="@+id/tvArticle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTwoWayBinding"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvLiveData"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="LiveData"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toRightOf="@+id/tvCustomEditText"
+        app:layout_constraintTop_toBottomOf="@+id/tvMvvmDemo"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tvWorkManager"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="WorkManager"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvArticle"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvHightOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Kotlin高阶函数"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/navigation_btn_bg"
+        app:layout_constraintLeft_toRightOf="@+id/tvWorkManager"
+        app:layout_constraintTop_toBottomOf="@+id/tvCustomEditText"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

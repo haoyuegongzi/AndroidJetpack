@@ -1,0 +1,170 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+
+android {
+    signingConfigs {
+//        release {
+//            storeFile file('./app/jetpack.jks')
+//            storePassword 'AndroidJetpack'
+//            keyAlias 'key0'
+//            keyPassword 'AndroidJetpack'
+//        }
+//        debug {
+//            storeFile file('./app/jetpack.jks')
+//            storePassword 'AndroidJetpack'
+//            keyAlias 'key0'
+//            keyPassword 'AndroidJetpack'
+//        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.androidjetpack"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    //引入对 DataBinding 的支持
+    android {
+        buildFeatures {
+            dataBinding = true
+            viewBinding = true// for view binding
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"//rootProject.kotlinVersion
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.3'
+    //Androidx下的一些控件，如TabLayout等
+    implementation 'com.google.android.material:material:1.3.0'
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Kotlin的Anko库
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    // Anko Layouts
+    implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+    // sdk15, sdk19, sdk21, sdk23 are also available
+    implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    // Coroutine listeners for Anko Layouts
+    implementation "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
+    implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+    // Anko SQLite
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //OkHttp3网络库
+    def ok_version = '4.8.1'
+    implementation "com.squareup.okhttp3:okhttp:$ok_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$ok_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$ok_version"
+
+    //Rx系列库
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    def retrofit = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    //Gson解析库
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //Gilde图片库
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    //Mmkv缓存库
+    implementation 'com.tencent:mmkv:1.0.24'
+    implementation 'com.getkeepsafe.relinker:relinker:1.4.0'
+    //协程
+    //👇 依赖协程核心库
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    //👇 依赖当前平台所对应的平台库
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+
+    //okhttp的Kotlin版本
+    implementation 'com.stormkid:okhttpkt:1.0.9.2'
+
+    //Mmkv缓存库
+    implementation "com.tencent:mmkv:1.0.24"
+    implementation "com.getkeepsafe.relinker:relinker:1.4.0"
+
+    implementation "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$kotlin_version"
+////////////////////////////////////////////////JetPack全家桶的部分模块依赖////////////////////////////////////////////////
+
+    ////navigation应用内导航的依赖
+    def nav_version = "2.3.3"
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    // Dynamic Feature Module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    /**room数据库, 记得在defaultConfig {}里面配置javaCompileOptions*/
+    def room_version = "2.2.6"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    /**Jetpack系列（ViewModel、LiveData、databinding、lifecycles）的依赖，只需要一下4项*/
+    def lifecycle_version = "2.3.0"
+    /**ViewModel*/
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    /**LiveData*/
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    /**Saved state module for ViewModel*/
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    /**alternately - if using Java8, use the following instead of lifecycle-compiler*/
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    /**WorkManager依赖*/
+    def versions = "2.5.0"
+    implementation "androidx.work:work-runtime:$versions"
+}

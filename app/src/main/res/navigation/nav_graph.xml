@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/navigationFragment013">
+
+<!--      name 指定 Fragment 的路径-->
+<!--      tools:layout 指定布局文件，如果不配置该属性在Design面板会看不见预览。-->
+<!--      action：字面理解就是动作，作用是fragment之间进行切换。-->
+<!--      app:startDestination：指定这个Fragment是start-destination-->
+<!--      app:destination：目的地，指定要跳转到Fragment的id。-->
+<!--      app:id：定义这个action的id，代码里执行跳转时要用到。-->
+<!--      enterAnim、exitAnim、popEnterAnim、popExitAnim：是页面切换和弹窗动画-->
+
+    <fragment
+        android:id="@+id/navigationFragment013"
+        android:name="com.androidjetpack.navigation.HomeFragment"
+        android:label="NavigationFragment01"
+        tools:layout="@layout/fragment_navigation">
+
+        <action
+            android:id="@+id/action_navigationFragment013_to_navigationFragment023"
+            app:destination="@id/navigationFragment023"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+
+<!--如果某个Fragment是最后一个Fragment，那么我们就可以直接省略他的action
+    argument：类似于Activity的跳转传参，只不过传参取参更加方便简单，如果某个Fragment
+            要接收从别的Fragment传过来的参数，那么可以通过argument标签处理，
+            如果我们在kotlin代码里面没有传参，那么我们获取到的就是通过argument标签设定的默认值，具体见下面。-->
+<!--    传值且跳转-->
+<!--    val flowStepNumberArg=1-->
+<!--    val action = HomeFragmentDirections.nextAction(flowStepNumberArg)-->
+<!--    findNavController().navigate(action)-->
+<!--    //取值-->
+<!--    val safeArgs: FlowStepFragmentArgs by navArgs()-->
+<!--    val flowStepNumber = safeArgs.flowStepNumber-->
+
+    <fragment
+        android:id="@+id/navigationFragment023"
+        android:name="com.androidjetpack.navigation.OneFragment"
+        android:label="NavigationFragment02" >
+
+<!--        <action-->
+<!--            android:id="@+id/action_navigationFragment023_to_navigationFragment032"/>-->
+        <argument
+            android:name="flowStepNumber"
+            app:argType="integer"
+            android:defaultValue="1"/>
+    </fragment>
+
+</navigation>
